@@ -404,3 +404,11 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
   }
 }
 ```
+
+## StringHardCoded
+lib/common/extentions/string_hardcoded.dart
+```dart
+extension StringHardCoded on String {
+  String get toHardCoded => this;
+}
+```
