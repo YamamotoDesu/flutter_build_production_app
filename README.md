@@ -573,3 +573,22 @@ class AsyncValueWidget<T> extends StatelessWidget {
 }
 
 ```
+
+## InputPhoneFormatter
+pubspec.yaml
+```yaml
+  mask_text_input_formatter: ^2.5.0
+```
+
+lib/common/mixin/input_phone_formatter_mixin.dart
+```dart
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+mixin InputPhoneFormatter {
+  var maskPhoneFormatter = MaskTextInputFormatter(
+    mask: '###-###-####', //016-196-0210
+    filter: {"#": RegExp(r'[0-9]')},
+    type: MaskAutoCompletionType.lazy,
+  );
+}
+```
