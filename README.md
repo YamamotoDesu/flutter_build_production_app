@@ -886,3 +886,34 @@ class SignUpRepository implements ISignUpRepository {
   }
 }
 ```
+
+## SignUp Service
+lib/features/auth/signup/application/isign_up_service.dart
+```dart
+import 'package:flutter_setup/features/auth/signup/data/dto/sign_up_response.dart';
+
+abstract class ISignUpService {
+  Future<SignUpResponse> signUp(Map<String, dynamic> request);
+}
+
+```
+
+lib/features/auth/signup/application/sign_up_service.dart
+```dart
+/// provider for SignUpApiService
+final signUpApiServiceProvider = Provider<ISignUpService>((ref) {
+  final signUpRepository = ref.watch(signUpRepositoryProvider);
+  return SignUpApiService(signUpRepository);
+});
+
+class SignUpApiService implements ISignUpService {
+  final ISignUpRepository _signUpRepository;
+
+  SignUpApiService(this._signUpRepository);
+
+  @override
+  Future<SignUpResponse> signUp(Map<String, dynamic> request) async {
+    return await _signUpRepository.signUp(request);
+  }
+}
+```
