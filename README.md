@@ -806,3 +806,48 @@ class _SignUpScreenState extends BaseConsumerState<SignUpScreen>
   }
 }
 ```
+
+## Signup API service
+lib/features/auth/signup/data/api/sign_up_api_service.dart
+```dart
+import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_setup/core/remote/network_service.dart';
+import 'package:flutter_setup/features/auth/signup/data/dto/sign_up_response.dart';
+import 'package:retrofit/retrofit.dart';
+
+part 'sign_up_api_service.g.dart';
+
+/// provider for SignUpApiService
+final signUpApiServiceProvider = Provider<SignUpApiService>((ref) {
+  final dio = ref.watch(networkServiceProvider);
+
+  return SignUpApiService(dio);
+});
+
+@RestApi()
+abstract class SignUpApiService {
+  factory SignUpApiService(Dio dio) => _SignUpApiService(dio);
+
+  @POST('api/v1/register')
+  Future<SignUpResponse> signUp(@Body() Map<String, dynamic> request);
+}
+```
+
+lib/features/auth/signup/data/dto/sign_up_response.dart
+```dart
+@freezed
+class SignUpResponse with _$SignUpResponse {
+  const factory SignUpResponse({
+    required String id,
+    required String name,
+    required String email,
+    required String phone,
+    @JsonKey(name: 'updated_at') required DateTime updatedAt,
+    @JsonKey(name: 'created_at') required DateTime createdAt,
+  }) = _SignUpResponse;
+
+  factory SignUpResponse.fromJson(Map<String, dynamic> json) =>
+      _$SignUpResponseFromJson(json);
+}
+```
