@@ -7,7 +7,7 @@ part 'sign_up_response.freezed.dart';
 @freezed
 class SignUpResponse with _$SignUpResponse {
   const factory SignUpResponse({
-    required String id,
+    required int id,
     required String name,
     required String email,
     required String phone,

@@ -20,7 +20,7 @@ SignUpResponse _$SignUpResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SignUpResponse {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $SignUpResponseCopyWith<$Res> {
       _$SignUpResponseCopyWithImpl<$Res, SignUpResponse>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String email,
       String phone,
@@ -74,7 +74,7 @@ class _$SignUpResponseCopyWithImpl<$Res, $Val extends SignUpResponse>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$_SignUpResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String email,
       String phone,
@@ -138,7 +138,7 @@ class __$$_SignUpResponseCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ class _$_SignUpResponse implements _SignUpResponse {
       _$$_SignUpResponseFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
@@ -233,7 +233,7 @@ class _$_SignUpResponse implements _SignUpResponse {
 
 abstract class _SignUpResponse implements SignUpResponse {
   const factory _SignUpResponse(
-          {required final String id,
+          {required final int id,
           required final String name,
           required final String email,
           required final String phone,
@@ -245,7 +245,7 @@ abstract class _SignUpResponse implements SignUpResponse {
       _$_SignUpResponse.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
